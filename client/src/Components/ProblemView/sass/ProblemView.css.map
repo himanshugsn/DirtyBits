@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,QAAQ,CAAC;EACP,UAAU,ECOA,OAAkB;EDN5B,UAAU,ECOA,+CAIX;EDVC,KAAK,EAAE,KAAK;CACb;;AAED,AAAA,UAAU,CAAC;EACT,WAAW,ECTD,aAAa,EAAE,UAAU;EDUnC,WAAW,EAAE,IAAI;CAClB",
+    "sources": [
+        "ProblemView.scss",
+        "_variables.scss"
+    ],
+    "names": [],
+    "file": "ProblemView.css"
+}

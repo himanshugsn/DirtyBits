@@ -1,0 +1,25 @@
+.navbarBack {
+  background: #434343;
+  background: -webkit-gradient(linear, left top, right top, color-stop(10%, #080808), color-stop(56%, #060607), to(#111111));
+  background: linear-gradient(90deg, #080808 10%, #060607 56%, #111111 100%);
+}
+
+.textFont {
+  font-family: "Public Sans", sans-serif;
+  font-weight: bold;
+}
+
+.navbar-light .navbar-nav .active > .nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show > .nav-link {
+  color: white;
+  border-bottom: 1px solid white;
+}
+
+#profileDrop {
+  color: white;
+  font-weight: 400;
+  border: 0;
+}
+/*# sourceMappingURL=Navbar.css.map */

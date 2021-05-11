@@ -1,0 +1,28 @@
+@import "./variables";
+
+.navbarBack {
+  background: $nav-bg-1;
+  background: $nav-bg-2;
+  // max-height: 7vh;
+}
+
+.textFont {
+  font-family: "Public Sans", sans-serif;
+  font-weight: bold;
+}
+
+.navbar-light .navbar-nav .active > .nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show > .nav-link {
+  color: $text-color;
+  border-bottom: 1px solid white;
+  
+}
+
+
+#profileDrop {
+  color: $text-color;
+  font-weight: 400;
+  border: 0;
+}

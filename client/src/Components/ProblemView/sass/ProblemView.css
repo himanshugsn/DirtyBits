@@ -1,0 +1,11 @@
+#pageDiv {
+  background: #656565;
+  background: radial-gradient(circle, #656565 0%, black 100%);
+  color: white;
+}
+
+#ioheading {
+  font-family: "Public Sans", sans-serif;
+  font-weight: bold;
+}
+/*# sourceMappingURL=ProblemView.css.map */

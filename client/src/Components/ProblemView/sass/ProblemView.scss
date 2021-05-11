@@ -1,0 +1,12 @@
+@import "./variables";
+
+#pageDiv {
+  background: $page-bg-1;
+  background: $page-bg-2;
+  color: white;
+}
+
+#ioheading {
+  font-family: $fontStyle;
+  font-weight: bold;
+}

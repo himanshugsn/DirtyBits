@@ -1,0 +1,66 @@
+#SpinnerDisp {
+  display: block;
+  margin-left: 25%;
+  margin-top: 25%;
+}
+
+#ProblemDisp {
+  display: none;
+}
+
+.problemTitle {
+  -ms-flex-line-pack: center;
+      align-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: "Public Sans", sans-serif;
+  font-weight: bold;
+  margin: 0 auto;
+}
+
+.problemStatement {
+  font-family: "Public Sans", sans-serif;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.TestCaseHeading {
+  display: flexbox;
+  padding: 3%;
+}
+
+#testCases {
+  margin-left: 2%;
+  margin-right: 2%;
+  width: 60%;
+  padding-bottom: 3%;
+}
+
+.memorylimit {
+  padding-left: 2%;
+}
+
+.timelimit {
+  padding-left: 2%;
+}
+
+#frmFile {
+  height: 50px;
+  width: 150px;
+  border: none;
+  overflow: scroll;
+}
+/*# sourceMappingURL=ProblemArea.css.map */

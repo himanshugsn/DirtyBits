@@ -1,0 +1,26 @@
+@import "./variables";
+
+#onlyInput {
+  padding-right: 1vw;
+  padding-left: 1vw;
+}
+
+#outputfield {
+  overflow: auto;
+  padding-right: 1vw;
+  padding-left: 1vw;
+}
+
+#inputoutputfield {
+  display: none;
+  width: 20vw;
+}
+
+.btn-secondary {
+  background-color: #cf2323;
+  border: none;
+}
+
+b {
+  color: white;
+}

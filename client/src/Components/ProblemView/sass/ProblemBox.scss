@@ -1,0 +1,24 @@
+@import "./variables";
+
+.ProblemBox {
+  background: $prob-bg-1;
+  background: $prob-bg-2;
+
+  color: $text-color;
+  border-style: solid;
+  border-width: thin;
+  max-width: 50%;
+  border-radius: 1vw;
+  min-width: 50%;
+  min-height: 90vh;
+}
+
+pre {
+  color: $text-color;
+  font-weight: bold;
+}
+
+Iframe {
+  color: $text-color;
+  font-weight: bold;
+}

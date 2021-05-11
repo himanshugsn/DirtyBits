@@ -1,0 +1,16 @@
+.item {
+  cursor: pointer;
+}
+
+button {
+  border: transparent;
+  cursor: pointer;
+  background-color: white;
+  outline: none;
+}
+
+#navbar {
+  padding-left: 0px;
+  padding-right: 0px;
+  position: relative;
+}

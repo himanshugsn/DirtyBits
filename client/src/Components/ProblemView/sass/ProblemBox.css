@@ -1,0 +1,23 @@
+.ProblemBox {
+  background: #8b8686;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(43%, #8b8686), color-stop(82%, #1b1509));
+  background: linear-gradient(0deg, #8b8686 43%, #1b1509 82%);
+  color: white;
+  border-style: solid;
+  border-width: thin;
+  max-width: 50%;
+  border-radius: 1vw;
+  min-width: 50%;
+  min-height: 90vh;
+}
+
+pre {
+  color: white;
+  font-weight: bold;
+}
+
+Iframe {
+  color: white;
+  font-weight: bold;
+}
+/*# sourceMappingURL=ProblemBox.css.map */
