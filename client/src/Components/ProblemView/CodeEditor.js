@@ -8,11 +8,15 @@ import axios from "axios";
 import ThemeDrop from "./ThemeDrop";
 import "./sass/CodeEditor.css";
 import InputOutputField from "./InputOutputField";
+import {fetchUser, sendData} from '../../actions'
+import { useDispatch } from "react-redux";
 
 const CodeEditor = (props) => {
-  var mapping = { python: "p3", cpp: "CP" };
+  const dispatch = useDispatch()
+  var mapping = { python: "p3", cpp: "CP", p3:"P3" };
   var score;
-  var user_id = props.uid;
+  var user_id = parseInt(props.uid);
+  console.log('user id is ', user_id)
 
   const [editorHeight, setEditorHeight] = useState("78vh");
 
@@ -33,6 +37,24 @@ const CodeEditor = (props) => {
 
   const displayOut = async (out) => {
     score = out["testCasesPassed"];
+    console.log(score.split('/'));
+    const newScore = score.split('/')
+    const first = parseInt(newScore[0]);
+    const second = parseInt(newScore[1]);
+    const calculatedScore = (first/second) * 100
+    console.log(first, second)
+    console.log('calculated score', calculatedScore)
+    console.log(props.id)
+    console.log(props.uid)
+    const dataToSend = {
+      score : calculatedScore,
+      problemId : props.id,
+      userId : props.uid
+    }
+    console.log('data to send', dataToSend)
+
+    dispatch(sendData(dataToSend))
+
     if (!document.getElementById("custominput").checked) {
       document.getElementById("result").innerHTML =
         "Test Cases Passed : " + score;
