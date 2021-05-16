@@ -21,26 +21,30 @@ class Admin extends React.Component {
 
 
     componentDidMount(){
-        axios.post('http://54.237.113.3/', {
-            "mail" : "mohit@gmail.com",
-            "type" : "getdata",
-            // "firstName" : "Mohit",
-            // "lastName" : "Bisht",
-            // "userName" : "Mohitb07",
-            // "passWord" : "server"    
-          }).then(response => {
-            console.table(response.data.userDetail)
-            const newSeries = Object.values(response.data.userDetail)            
+        axios.get('/api/current_user').then(response => {
+            // console.table(response.data.userDetail)
+            // const newSeries = Object.values(response.data.userDetail)  
+            // console.log(newSeries)          
+            console.log(response.data)
             this.setState({
-                series: [newSeries[2], newSeries[3], newSeries[4]],
-                rank:newSeries[6],
-                solved:newSeries[2],
-                partiallySolved:newSeries[3]
+                series: response.data.partiallySolved,
+                rank:response.data.rank,
+                solved:response.data.problemsSolved,
+                partiallySolved:response.data.partiallySolved
             })
 
           }).catch(error => {
             console.log(error)
           })
+        // if(this.props.auth) {
+        //     this.setState({
+        //         rank:this.props.auth.rank,
+        //         solved:this.props.auth.problemsSolved,
+        //         partiallySolved : this.props.auth.partiallySolved
+        //     })        
+        // }
+       
+        // console.log(this.props.auth)
     }
 
     render(){
