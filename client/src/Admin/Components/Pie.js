@@ -30,11 +30,28 @@ import ReactApexChart from 'react-apexcharts';
           
           };
         }
+
+        dataHandler(){
+          if(this.state.series){
+            return (
+              <div id="chart">
+              <ReactApexChart options={this.state.options} series={this.state.series} type="pie" width={380} />
+            </div>
+            )
+          } else {
+            return (
+              <div>
+                <h6>Not enough data</h6>
+              </div>
+            )
+          }
+        }
+
         render() {
           return (        
-          <div id="chart">
-            <ReactApexChart options={this.state.options} series={this.state.series} type="pie" width={380} />
-          </div>
+            <div>
+              {this.dataHandler}
+            </div>
           );
         }
       }
