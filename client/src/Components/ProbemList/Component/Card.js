@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import { IconButton } from '@material-ui/core'
 import BookmarkOutlinedIcon from '@material-ui/icons/BookmarkOutlined';
-import { BookmarkBorder } from '@material-ui/icons';
 
 class Card extends React.Component {
     constructor(props){
@@ -20,7 +19,7 @@ class Card extends React.Component {
 
     render() {
         const {title, description,id} = this.props;
-        console.log('card id'+id)
+        console.log('card id ' + id)
         return(
             <div style={{width: '50%',marginLeft: '-4%',marginTop: '-9%'}}>
                 <div className="card">
