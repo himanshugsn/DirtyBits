@@ -10,7 +10,56 @@ const userSchema = new Schema({
     googleId:String,
     avatar: {
         type : String
+    },
+    email : {
+        type:String,
+        require: true
+    },
+    password: {
+        type:String,
+        trim: true,
+        default : 'fksljafdsdf'
+    },
+    bookmarkedQuestions: {
+        type : [Number],
+        default : []
+    },
+    rank : {
+        type:Number,
+        default: 0
+    },
+    score : {
+        type : Number,
+        default : 0
+    },
+    problemsSolved : {
+        type: Number,
+        default: 0
+    },
+    solvedQuestion : {
+        type : [Number],
+        default : []
+    },
+    partiallySolvedQuestion : {
+        type : [Number],
+        default : []
+    },
+    attempted : {
+        type: Number,
+        default: 0
+    },
+    partiallySolved : {
+        type: Number,
+        default: 0
+    },
+    attemptedQuestions : {
+        type : [Number],
+        default : []
     }
-})
+
+}, {
+    timestamps:true
+    }
+)
 
 mongoose.model('users', userSchema)
