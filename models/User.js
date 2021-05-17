@@ -32,10 +32,6 @@ const userSchema = new Schema({
         type : Number,
         default : 0
     },
-    problemsSolved : {
-        type: Number,
-        default: 0
-    },
     solvedQuestion : {
         type : [Number],
         default : []
@@ -43,14 +39,6 @@ const userSchema = new Schema({
     partiallySolvedQuestion : {
         type : [Number],
         default : []
-    },
-    attempted : {
-        type: Number,
-        default: 0
-    },
-    partiallySolved : {
-        type: Number,
-        default: 0
     },
     attemptedQuestions : {
         type : [Number],
