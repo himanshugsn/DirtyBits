@@ -44,11 +44,15 @@ module.exports = (app) => {
             if(score === 100 ) {
                 // UPDATING THE ATTEMPTED QUESTION FIELD AND ARRAY
                 if(!req.user.attemptedQuestions.includes(problemId)){
-                    const user = await User.findByIdAndUpdate(req.body.userId, {$push : {attemptedQuestions : problemId}, $set:{attempted : req.user.attempted + 1}});
+                    const user = await User.findByIdAndUpdate(req.body.userId, {$push : {attemptedQuestions : problemId}});
                     var updatedUser = await user.save();
                 }
                 if(!req.user.solvedQuestion.includes(problemId)){
-                    const user = await User.findByIdAndUpdate(req.body.userId, {$push : {solvedQuestion : problemId}, $set: {problemsSolved:req.user.problemsSolved + 1}})
+                    const user = await User.findByIdAndUpdate(req.body.userId, {$push : {solvedQuestion : problemId}})
+                    var updatedUser = await user.save();
+                }
+                if(req.user.partiallySolvedQuestion.includes(problemId)){
+                    var user = await User.findByIdAndUpdate(req.body.userId, {$pull : {partiallySolvedQuestion : problemId}})
                     var updatedUser = await user.save();
                 }
 
@@ -58,11 +62,11 @@ module.exports = (app) => {
             if(score === 0 ) {
                 // UPDATING THE ATTEMPTED QUESTION FIELD AND ARRAY
                 if(!req.user.attemptedQuestions.includes(problemId)){
-                    var user = await User.findByIdAndUpdate(req.body.userId, {$push : {attemptedQuestions : problemId}, $set:{attempted : req.user.attempted + 1}})
+                    var user = await User.findByIdAndUpdate(req.body.userId, {$push : {attemptedQuestions : problemId}})
                     var updatedUser = await user.save();
                 }
                 if(!req.user.partiallySolvedQuestion.includes(problemId)){
-                    var user = await User.findByIdAndUpdate(req.body.userId, {$push : {partiallySolvedQuestion : problemId}, $set : {partiallySolved : req.user.partiallySolved + 1}})
+                    var user = await User.findByIdAndUpdate(req.body.userId, {$push : {partiallySolvedQuestion : problemId}})
                     var updatedUser = await user.save();
                 }
                 // UPDATING THE PROBLEM SOLVED
@@ -71,11 +75,11 @@ module.exports = (app) => {
 
             if(score > 0 && score < 100){
                 if(!req.user.attemptedQuestions.includes(problemId)){
-                    var user = await User.findByIdAndUpdate(req.body.userId, {$push : {attemptedQuestions : problemId}, $set:{attempted : req.user.attempted + 1}})
+                    var user = await User.findByIdAndUpdate(req.body.userId, {$push : {attemptedQuestions : problemId}})
                     var updatedUser = await user.save();
                 }
                 if(!req.user.partiallySolvedQuestion.includes(problemId)){
-                    var user = await User.findByIdAndUpdate(req.body.userId, {$push : {partiallySolvedQuestion : problemId}, $set : {partiallySolved : req.user.partiallySolved + 1}})
+                    var user = await User.findByIdAndUpdate(req.body.userId, {$push : {partiallySolvedQuestion : problemId}})
                     var updatedUser = await user.save();
                 }
                 res.status(200).json(updatedUser)
