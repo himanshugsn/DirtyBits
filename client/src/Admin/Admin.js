@@ -26,11 +26,13 @@ class Admin extends React.Component {
             // const newSeries = Object.values(response.data.userDetail)  
             // console.log(newSeries)          
             console.log(response.data)
+            const solved = response.data.solvedQuestion.length
+            console.log('length of solved array', solved)
             this.setState({
                 series: response.data.partiallySolved,
                 rank:response.data.rank,
-                solved:response.data.problemsSolved,
-                partiallySolved:response.data.partiallySolved
+                solved:solved,
+                partiallySolved:response.data.partiallySolvedQuestion.length
             })
 
           }).catch(error => {
