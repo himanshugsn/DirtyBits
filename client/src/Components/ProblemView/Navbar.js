@@ -88,6 +88,16 @@ function Navbar(props) {
                 Blogs
               </a>
             </li>
+            <li className="nav-item mr-4">
+              <Link style={{color:'white'}}
+                className="nav-link"
+                to = "/leaderboard"
+                id="leaderboard"
+                onClick={() => setPage("leaderboard")}
+              >
+                Leaderboard
+              </Link>
+            </li>
           </ul>
           { isAuth ?
 
