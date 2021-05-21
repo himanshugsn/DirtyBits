@@ -30,7 +30,7 @@ class Admin extends React.Component {
             console.log('length of solved array', solved)
             this.setState({
                 series : [solved, response.data.partiallySolvedQuestion.length, response.data.attemptedQuestions],
-                rank:solved,
+                rank:response.data.rank,
                 solved:solved,
                 partiallySolved:response.data.partiallySolvedQuestion.length
             })
