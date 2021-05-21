@@ -17,15 +17,18 @@ module.exports = (app) => {
         res.redirect('/')
     })
     
-    app.get('/api/current_user', (req, res)=>{
+    app.get('/api/current_user', async(req, res)=>{
+        // const users = await User.find({});
+
+        // console.log(users.sort((a,b)=>a-b));
         res.send(req.user)
     })
 
     app.post('/api/update_user', requireLogin, async (req, res) => {
         const { score, problemId } = req.body;
-        console.log('score value', score);
-        console.log('reached');
-        console.log('problem id is ', problemId);
+        // console.log('score value', score);
+        // console.log('reached');
+        // console.log('problem id is ', problemId);
         // const user = await User.findByIdAndUpdate(req.body.userId, {$set:{score:10,attempted : 1 }}, (err, db) => {
         //     if (err) throw err;
         //     console.log('1 document updated')
@@ -55,7 +58,7 @@ module.exports = (app) => {
                     var user = await User.findByIdAndUpdate(req.body.userId, {$pull : {partiallySolvedQuestion : problemId}})
                     var updatedUser = await user.save();
                 }
-
+                
                 res.status(200).json(updatedUser)
 
             } 
@@ -65,23 +68,24 @@ module.exports = (app) => {
                     var user = await User.findByIdAndUpdate(req.body.userId, {$push : {attemptedQuestions : problemId}})
                     var updatedUser = await user.save();
                 }
-                if(!req.user.partiallySolvedQuestion.includes(problemId)){
-                    var user = await User.findByIdAndUpdate(req.body.userId, {$push : {partiallySolvedQuestion : problemId}})
-                    var updatedUser = await user.save();
+                if(!req.user.partiallySolvedQuestion.includes(problemId) && !req.user.solvedQuestion.includes(problemId)){
+                        var user = await User.findByIdAndUpdate(req.body.userId, {$push : {partiallySolvedQuestion : problemId}})
+                        var updatedUser = await user.save();             
                 }
                 // UPDATING THE PROBLEM SOLVED
                 res.status(200).json(updatedUser)
             } 
 
             if(score > 0 && score < 100){
+                console.log('half score reached');
                 if(!req.user.attemptedQuestions.includes(problemId)){
                     var user = await User.findByIdAndUpdate(req.body.userId, {$push : {attemptedQuestions : problemId}})
                     var updatedUser = await user.save();
                 }
-                if(!req.user.partiallySolvedQuestion.includes(problemId)){
+                if(!req.user.partiallySolvedQuestion.includes(problemId) && !req.user.solvedQuestion.includes(problemId)){
                     var user = await User.findByIdAndUpdate(req.body.userId, {$push : {partiallySolvedQuestion : problemId}})
-                    var updatedUser = await user.save();
-                }
+                    var updatedUser = await user.save();             
+            }
                 res.status(200).json(updatedUser)
             }
         }catch(err) {

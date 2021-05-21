@@ -12,7 +12,7 @@ class Admin extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            series:[0, 0, 0],
+            series:[0,0,0],
             rank:0,
             solved:0,
             partiallySolved:0
@@ -29,8 +29,8 @@ class Admin extends React.Component {
             const solved = response.data.solvedQuestion.length
             console.log('length of solved array', solved)
             this.setState({
-                series: response.data.partiallySolved,
-                rank:response.data.rank,
+                series : [solved, response.data.partiallySolvedQuestion.length, response.data.attemptedQuestions],
+                rank:solved,
                 solved:solved,
                 partiallySolved:response.data.partiallySolvedQuestion.length
             })
