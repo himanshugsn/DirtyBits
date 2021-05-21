@@ -14,6 +14,7 @@ import profile from "./Components/Profile/profile";
 
 import * as actions from './actions'
 import { connect } from "react-redux";
+import Leaderboard from "./Components/Leaderboard/Leaderboard";
 
 
 class App extends Component {
@@ -41,6 +42,7 @@ class App extends Component {
           <Route path="/settings" exact component={settings}/>
           <Route path="/dashboard" exact component={Admin}/>
           <Route path="/profile" exact component={profile}/>
+          <Route path="/leaderboard" exact component={Leaderboard}/>
         </div>
       </Router>
     </div>
