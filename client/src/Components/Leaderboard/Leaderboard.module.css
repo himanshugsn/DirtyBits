@@ -1,0 +1,9 @@
+.container {
+    height: 92vh;
+    background-image: url('../static//dashboard-back.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+}
+

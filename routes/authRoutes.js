@@ -26,16 +26,17 @@ module.exports = (app) => {
 
     app.get('/api/leaderboard', requireLogin,  async(req, res) => {
         const users = await User.find({});
+        console.log('before sort', users)
         users.sort(function(a, b) {
             var keyA = a.problemsSolved, keyB = b.problemsSolved;
             if(keyA < keyB) return -1;
             if(keyA > keyB) return 1;
             return 0;
         })
+        console.log('after sort', users)
         console.log('my current id ', req.user._id)
         const getObj = users.find((x) => x.email === req.user.email)
         const rank = users.indexOf(getObj) + 1;
-        console.log('current index' , getObj)
         req.user.rank = rank;
         const user = await req.user.save()
         res.json(users)
