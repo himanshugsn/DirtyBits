@@ -37,7 +37,10 @@ class ProblemLevel extends React.Component {
                 <h1 style={{
                     fontWeight:600,
                     paddingTop:'4rem',
-                    color:'teal'
+                    color:'teal',
+                    textAlign:'center',
+                    marginTop:'2%',
+                    marginBottom:'-4%'
                 }}>Topics</h1>
             <div  className="cards">
                 <Card img={'https://blog.amt.in/wp-content/uploads/2018/09/Array-Blog-PIC-900x400.jpg'} value={'Arrays'} title={'Array'} description={'Basic level Data Structures and Algorithms'}/>

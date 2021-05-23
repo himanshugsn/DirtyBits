@@ -19,7 +19,7 @@ class Leaderboard extends React.Component {
     render(){
         return (
             <div className={styles.container}>
-                <h1>Leaderboard</h1>
+                <h1 className={styles.heading1}>Leaderboard</h1>
                 <LeaderboardUser users={this.state.users}/>
             </div>
             

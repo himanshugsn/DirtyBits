@@ -25,7 +25,7 @@ class App extends Component {
 
   render(){
     return (
-      <div>
+      <>
       <Router history={history} >
         <div style={{overflowX:'hidden'}}>
           <Navbar/>
@@ -45,7 +45,7 @@ class App extends Component {
           <Route path="/leaderboard" exact component={Leaderboard}/>
         </div>
       </Router>
-    </div>
+    </>
     )
   }
 }

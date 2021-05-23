@@ -4,7 +4,7 @@ import style from './style.css'
 
 function profile() {
     return (
-        <div style={{height:'100vh', background:'red', position:'absolute', width:'100%'}}>
+        <div style={{background:'red', textAlign:'center', width:'100%', height:'92.3vh'}}>
            <h1>Profile page</h1>
         </div>
     )

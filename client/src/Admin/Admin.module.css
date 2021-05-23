@@ -7,13 +7,14 @@
 
 body {
     background-color: ghostwhite;
+    /* height: 92.3vh; */
 }
 
 .dashboardTitle {
     font-weight: 400;    
 }
 
-h1 , h4 {
+.heading1, .heading4 {
     text-align: center;
     margin-top: 3%;
     margin-bottom: -5%;
@@ -28,7 +29,7 @@ span > h1 {
     flex-direction: column;
     flex-wrap: wrap;
     max-width: 1200px;
-    height: 100vh;
+    height: 91vh;
     margin-left: auto;
     margin-right: auto;
 }
