@@ -19,7 +19,6 @@ module.exports = (app) => {
     
     app.get('/api/current_user', async(req, res)=>{
         // const users = await User.find({});
-
         // console.log(users.sort((a,b)=>a-b));
         res.send(req.user)
     })
@@ -65,6 +64,11 @@ module.exports = (app) => {
 
         try {
             if(score === 100 ) {
+                var today = new Date();
+                var dd = String(today.getDate()).padStart(2, '0');
+                var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                var yyyy = today.getFullYear();
+                today = mm + '/' + dd + '/' + yyyy;
                 // UPDATING THE ATTEMPTED QUESTION FIELD AND ARRAY
                 if(!req.user.attemptedQuestions.includes(problemId)){
                     const user = await User.findByIdAndUpdate(req.body.userId, {$push : {attemptedQuestions : problemId}});
@@ -77,6 +81,29 @@ module.exports = (app) => {
                 if(req.user.partiallySolvedQuestion.includes(problemId)){
                     var user = await User.findByIdAndUpdate(req.body.userId, {$pull : {partiallySolvedQuestion : problemId}})
                     var updatedUser = await user.save();
+                }
+                if(req.user.timeSeriesGraphData.findIndex(item => item.key === today) < 0 ){
+                    const user = await User.findByIdAndUpdate(req.body.userId, {$push : {timeSeriesGraphData : {
+                        key:today,
+                        data: 20
+                    }}})
+                    var updatedUser = await user.save()
+                }else {
+
+                    const user = await User.findByIdAndUpdate(req.body.userId, {$set : {timeSeriesGraphData : {
+                        key : today,
+                        // data : req.user.timeSeriesGraphData[1].data + 20
+                        data : req.user.timeSeriesGraphData.map((item, index) => {
+                            console.log(item.key === today)
+                            req.user.timeSeriesGraphData[index].data = req.user.timeSeriesGraphData[index].data + 10
+                            console.log(req.user.timeSeriesGraphData[index].data)
+                            req.user.save()
+                        }
+                            // item.key === today && (req.user.timeSeriesGraphData[index].data + 10)
+                        )
+                    }}})
+                    // console.log(req.user.timeSeriesGraphData[1].data)
+                    var updatedUser = await user.save()
                 }
                 
                 res.status(200).json(updatedUser)
