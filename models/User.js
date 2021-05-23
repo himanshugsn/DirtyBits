@@ -43,6 +43,13 @@ const userSchema = new Schema({
     attemptedQuestions : {
         type : [Number],
         default : []
+    },
+    timeSeriesGraphData: {
+        type : [{
+            key:String,
+            data: Number
+        }],
+        default : []
     }
 
 }, {
