@@ -23,15 +23,11 @@ class Admin extends React.Component {
 
     componentDidMount(){
         axios.get('/api/current_user').then(response => {
-            // console.table(response.data.userDetail)
-            // const newSeries = Object.values(response.data.userDetail)  
-            // console.log(newSeries)          
+  
             const solved = response.data.solvedQuestion.length
-            // console.log('length of solved array', solved)
-            // console.log('attempted', response.data.attemptedQuestions)
-            // console.log(response.data.timeSeriesGraphData)
+  
             this.setState({
-                series : [solved, response.data.partiallySolvedQuestion.length, response.data.attemptedQuestions.length],
+                series : [solved, response.data.partiallySolvedQuestion.length, response.data.partiallySolvedQuestion.length],
                 rank:response.data.rank,
                 solved:solved,
                 partiallySolved:response.data.partiallySolvedQuestion.length,
@@ -41,15 +37,6 @@ class Admin extends React.Component {
           }).catch(error => {
             console.log(error)
           })
-        // if(this.props.auth) {
-        //     this.setState({
-        //         rank:this.props.auth.rank,
-        //         solved:this.props.auth.problemsSolved,
-        //         partiallySolved : this.props.auth.partiallySolved
-        //     })        
-        // }
-       
-        // console.log(this.props.auth)
     }
 
     render(){
@@ -64,7 +51,7 @@ class Admin extends React.Component {
                 <>
                 <h1 className={cx(styles.dashboardTitle, styles.heading1)}>Your Dashboard</h1>
                 <div className={cx(styles.container)}>
-                <LineGraph data={data}/>
+                <LineGraph/>
                 <div className={styles.cardsPieContainer}>
                     <div className={styles.cardsContainer}>
                         <div className={styles.card}>
@@ -80,7 +67,7 @@ class Admin extends React.Component {
                             <span><h1 style={{marginTop:'26%'}} className={styles.heading1}>{this.state.solved}</h1></span>
                         </div>
                     </div>
-                        <Pie series={this.state.series}/>
+                        <Pie/>
                 
                 </div>
             </div> 
