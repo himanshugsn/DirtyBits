@@ -1,3 +1,5 @@
+import axios from 'axios';
+import React from 'react';
 // import React from 'react';
 // import ReactApexChart from 'react-apexcharts';
 
@@ -7,7 +9,7 @@
 
 //           this.state = {
           
-//             series: this.props.series,
+//             series: [],
 //             options: {
 //               chart: {
 //                 width: 380,
@@ -31,27 +33,27 @@
 //           };
 //         }
 
-//         // dataHandler(){
-//         //   if(this.state.series){
-//         //     return (
-//         //       <div id="chart">
-//         //       <ReactApexChart options={this.state.options} series={this.state.series} type="pie" width={380} />
-//         //     </div>
-//         //     )
-//         //   } else {
-//         //     return (
-//         //       <div>
-//         //         <h6>Not enough data</h6>
-//         //       </div>
-//         //     )
-//         //   }
-//         // }
+//         async componentDidMount(){
+//           const response = await axios.get('/api/current_user');
+//           const solved = response.data.solvedQuestion.length;
+//           const Partially = response.data.partiallySolvedQuestion.length;
+//           const Attempted = response.data.attemptedQuestions.length;
+//           this.setState({
+//             series : [solved, Partially, Attempted]
+//           })
+//         }
 
 //         render() {
+//           console.log('state', this.state)
 //           return (
-//             <div id="chart">
-//             <ReactApexChart options={this.state.options} series={this.state.series} type="pie" width={380} />
-//           </div>
+//             <>
+//             {
+//               this.state.length > 0 ? <div id="chart">
+//               <ReactApexChart options={this.state.options} series={this.state.series} type="pie" width={380} />
+//             </div> : 'Loading...'
+//             }
+//             </>
+            
 //           )
 //         }
 //       }
@@ -60,19 +62,39 @@
 
 import { PieChart } from 'reaviz';
 
-const MyChart = (props) => (
-  props.series.length > 0 &&
-  (
-  <PieChart
-    height={300}
-    width={300}
-    data={[
-      { key: 'Solved', data: props.series[0] },
-      { key: 'Partially', data: props.series[1] },
-      { key: 'Attempted', data: props.series[2] },
-    ]}
-  />
-  )
-);
+class MyChart extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      solved : 0,
+      Partially : 0,
+      Attempted : 0
+    }
+  }
+  async componentDidMount(){
+              const response = await axios.get('/api/current_user');
+              const solved = response.data.solvedQuestion.length;
+              const Partially = response.data.partiallySolvedQuestion.length;
+              const Attempted = response.data.attemptedQuestions.length;
+              this.setState({
+                solved ,
+                Partially,
+                Attempted
+              })
+            }
+  render(){
+    return (
+      <PieChart
+        height={300}
+        width={300}
+        data={[
+          { key: 'Solved', data: this.state.solved },
+          { key: 'Partially', data: this.state.Partially  },
+          { key: 'Attempted', data: this.state.Attempted  },
+        ]}
+      />
+      )
+  }
+} 
 
 export default MyChart;
