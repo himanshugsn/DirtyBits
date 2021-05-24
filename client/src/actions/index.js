@@ -2,12 +2,17 @@ import axios from 'axios';
 import { FETCH_USER, UPDATE_USER } from './types'
 
 export const fetchUser = () => async dispatch => {
-    const res = await axios.get('/api/current_user');
+    try {
+        const res = await axios.get('/api/current_user');
 
-    dispatch({
-        type: FETCH_USER,
-        payload : res.data
-    })
+        dispatch({
+            type: FETCH_USER,
+            payload : res.data
+        })
+    }catch(err) {
+        throw(err)
+    }
+    
 }
 
 export const sendData = (data) => async dispatch => {
