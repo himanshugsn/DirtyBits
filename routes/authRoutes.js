@@ -5,7 +5,8 @@ const requireLogin = require('../middleware/requireLogin')
 
 module.exports = (app) => {
     app.get('/auth/google', passport.authenticate('google', {
-        scope: ['profile', 'email']
+        scope: ['profile', 'email'],
+        prompt:'consent'
     }))
     
     app.get('/auth/google/callback', passport.authenticate('google'), (req, res)=> {
@@ -94,10 +95,11 @@ module.exports = (app) => {
                         key : today,
                         // data : req.user.timeSeriesGraphData[1].data + 20
                         data : req.user.timeSeriesGraphData.map((item, index) => {
-                            console.log(item.key === today)
+                            if(item.key === today){
                             req.user.timeSeriesGraphData[index].data = req.user.timeSeriesGraphData[index].data + 10
                             console.log(req.user.timeSeriesGraphData[index].data)
                             req.user.save()
+                            }
                         }
                             // item.key === today && (req.user.timeSeriesGraphData[index].data + 10)
                         )
