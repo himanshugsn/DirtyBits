@@ -4,17 +4,12 @@ import Row from './Row.jsx'
 
 class LeaderboardUser extends React.Component {
     render(props){       
-        if(this.props.users.length > 0) {
-            var score = this.props.users[0].solvedQuestion.length;
-        }         
+        // if(this.props.users.length > 0) {
+        //     var score = this.props.users[0].solvedQuestion.length;
+        // }         
         return (
             <div className={styles.user}>
                 <div className={styles.leaderboardContainer}>
-                    {/* <div className={styles.header}>
-                        <thead>Rank</thead>
-                        <thead>Username</thead>
-                        <thead>Score</thead>
-                    </div> */}
                     <div className={styles.section}>
                     <table class="table table-striped table-dark">
                         <thead>
@@ -26,7 +21,7 @@ class LeaderboardUser extends React.Component {
                         </thead>
                         <tbody>
                             {
-                                this.props.users.map((user, index) => <Row username={this.props.users[index].username} rank={this.props.users[index].rank} score={score}/>)
+                                this.props.users.map((user, index) => <Row username={this.props.users[index].username} rank={this.props.users[index].rank} score={this.props.users[index].solvedQuestion.length}/>)
                             }
                         </tbody>
                         </table>
