@@ -62,39 +62,44 @@ module.exports = (app) => {
                 if(!req.user.solvedQuestion.includes(problemId)){
                     const user = await User.findByIdAndUpdate(req.body.userId, {$push : {solvedQuestion : problemId}})
                     var updatedUser = await user.save();
+
+                    if(req.user.timeSeriesGraphData.findIndex(item => item.key === today) < 0 ){
+                        const user = await User.findByIdAndUpdate(req.body.userId, {$push : {timeSeriesGraphData : {
+                            key:today,
+                            data: 20
+                        }}})
+                        var updatedUser = await user.save()
+                    }else {
+    
+                        const user = await User.findByIdAndUpdate(req.body.userId, {$set : {timeSeriesGraphData : {
+                            key : today,
+                            // data : req.user.timeSeriesGraphData[1].data + 20
+                            data : req.user.timeSeriesGraphData.map((item, index) => {
+                                if(item.key === today){
+                                req.user.timeSeriesGraphData[index].data = req.user.timeSeriesGraphData[index].data + 10
+                                console.log(req.user.timeSeriesGraphData[index].data)
+                                req.user.save()
+                                }
+                            }
+                                // item.key === today && (req.user.timeSeriesGraphData[index].data + 10)
+                            )
+                        }}})
+                        // console.log(req.user.timeSeriesGraphData[1].data)
+                        var updatedUser = await user.save()
+                    }
+                    
+                    res.status(200).json(updatedUser)
+    
+                } 
+
                 }
                 if(req.user.partiallySolvedQuestion.includes(problemId)){
                     var user = await User.findByIdAndUpdate(req.body.userId, {$pull : {partiallySolvedQuestion : problemId}})
                     var updatedUser = await user.save();
                 }
-                if(req.user.timeSeriesGraphData.findIndex(item => item.key === today) < 0 ){
-                    const user = await User.findByIdAndUpdate(req.body.userId, {$push : {timeSeriesGraphData : {
-                        key:today,
-                        data: 20
-                    }}})
-                    var updatedUser = await user.save()
-                }else {
 
-                    const user = await User.findByIdAndUpdate(req.body.userId, {$set : {timeSeriesGraphData : {
-                        key : today,
-                        // data : req.user.timeSeriesGraphData[1].data + 20
-                        data : req.user.timeSeriesGraphData.map((item, index) => {
-                            if(item.key === today){
-                            req.user.timeSeriesGraphData[index].data = req.user.timeSeriesGraphData[index].data + 10
-                            console.log(req.user.timeSeriesGraphData[index].data)
-                            req.user.save()
-                            }
-                        }
-                            // item.key === today && (req.user.timeSeriesGraphData[index].data + 10)
-                        )
-                    }}})
-                    // console.log(req.user.timeSeriesGraphData[1].data)
-                    var updatedUser = await user.save()
-                }
-                
-                res.status(200).json(updatedUser)
 
-            } 
+
             if(score === 0 ) {
                 // UPDATING THE ATTEMPTED QUESTION FIELD AND ARRAY
                 if(!req.user.attemptedQuestions.includes(problemId)){
