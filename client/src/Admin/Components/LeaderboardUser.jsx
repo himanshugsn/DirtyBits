@@ -3,10 +3,7 @@ import styles from './LeaderboardUser.module.css'
 import Row from './Row.jsx'
 
 class LeaderboardUser extends React.Component {
-    render(props){       
-        // if(this.props.users.length > 0) {
-        //     var score = this.props.users[0].solvedQuestion.length;
-        // }         
+    render(props){             
         return (
             <div className={styles.user}>
                 <div className={styles.leaderboardContainer}>
@@ -15,7 +12,7 @@ class LeaderboardUser extends React.Component {
                         <thead>
                             <tr>
                             <th scope="col">Rank</th>
-                            <th scope="col">Username</th>
+                            <th scope="col">Name</th>
                             <th scope="col">Score</th>
                             </tr>
                         </thead>
