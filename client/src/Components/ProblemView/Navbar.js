@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import logo from "../static/logo.svg";
 import "./sass/Navbar.css";
 
+import Button from '@material-ui/core/Button';
 import {Link} from 'react-router-dom';
 import Avatar from './Avatar';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
@@ -162,12 +163,12 @@ function Navbar(props) {
                 </button>
               </div>
               <div className="modal-body">
-                Sure you want to Logout ? 
+                 Want to Logout ? 
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-primary" data-dismiss="modal">Cancel</button>
+                  <Button style={{outline:'none'}} type="button" variant="text" data-dismiss="modal">Cancel</Button>
                 <form action="/api/logout">
-                  <button type="submit" className="btn btn-secondary">Logout</button>
+                  <Button style={{outline:'none'}} color="secondary" type="submit" variant="contained">Logout</Button>
                 </form>
               </div>
             </div>
