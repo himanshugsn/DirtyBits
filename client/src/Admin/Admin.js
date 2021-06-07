@@ -47,7 +47,7 @@ class Admin extends React.Component {
         return (
             <>
             {
-                this.props.auth && this.state.data.length > 0 ? 
+                this.props.auth || this.state.data.length > 0 ? 
                 <>
                 <h1 className={cx(styles.dashboardTitle, styles.heading1)}>Your Dashboard</h1>
                 <div className={cx(styles.container)}>
