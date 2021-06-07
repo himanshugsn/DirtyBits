@@ -27,7 +27,7 @@ class LineGraph extends React.Component {
             curve: 'straight'
           },
           title: {
-            text: 'Rank by Month',
+            text: 'Questions Solved in a day',
             align: 'left'
           },
           grid: {
