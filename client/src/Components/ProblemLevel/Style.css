@@ -79,7 +79,7 @@ body {
 }
 
 .hero {
-  background: url("../static/background.jpg");
+  background: url("../static/background.webp");
   background-size: cover;
   padding: 80px;
   height: 80vh;
