@@ -7,7 +7,8 @@ import axios from 'axios';
 import { connect } from 'react-redux'
 import Alert from '../Components/alert'
 import Login from '../Components/Buttons/Login.js';
-
+import {GiLaurelsTrophy, GiHourglass, GiPartyPopper} from 'react-icons/gi'
+import Meter from './Components/Meter'
 class Admin extends React.Component {
     constructor(props) {
         super(props);
@@ -49,28 +50,35 @@ class Admin extends React.Component {
             {
                 this.props.auth || this.state.data.length > 0 ? 
                 <>
-                <h1 className={cx(styles.dashboardTitle, styles.heading1)}>Your Dashboard</h1>
-                <div className={cx(styles.container)}>
-                <LineGraph/>
-                <div className={styles.cardsPieContainer}>
-                    <div className={styles.cardsContainer}>
-                        <div className={styles.card}>
-                            <h4 className={styles.heading4}>Rank</h4>
-                            <span><h1 style={{marginTop:'26%'}} className={styles.heading1}>{this.state.rank}</h1></span>
-                        </div>
-                        <div className={cx(styles.card, styles.card2)}>
-                            <h4 className={styles.heading4}>Partially solved</h4>
-                            <span><h1 style={{marginTop:'26%'}} className={styles.heading1}>{this.state.partiallySolved}</h1></span>
-                        </div>
-                        <div className={cx(styles.card, styles.card3)}>
-                            <h4 className={styles.heading4}>Problem solved</h4>
-                            <span><h1 style={{marginTop:'26%'}} className={styles.heading1}>{this.state.solved}</h1></span>
-                        </div>
+                <div className={styles.container}>
+                    <h1 className={styles.title}>DASHBOARD</h1>
+                    <LineGraph/>
+                    <div className={styles.innerCards}>
+                            <div className={styles.card1}>
+                                <span className={cx(styles.icon, styles.icon1)}><GiLaurelsTrophy/></span>
+                                
+                                <h1 className="text-muted">Rank</h1>
+                                <h3>{this.state.rank}</h3>
+                            </div>
+                            <div className={styles.card1}>
+                            <span className={cx(styles.icon, styles.icon2)}><GiHourglass/></span>
+                                <h1 className="text-muted">Partially Solved</h1>
+                                <h3>{this.state.partiallySolved}</h3>
+                            </div>
+                            <div className={styles.card1}>
+                            <span className={cx(styles.icon, styles.icon3)}><GiPartyPopper/></span>
+                                <h1 className="text-muted">Solved</h1>
+                                <h3>{this.state.solved}</h3>
+                            </div>
                     </div>
+                    <div className={styles.pie}>
                         <Pie/>
-                
+                        {/* <Meter/> */}
+                    </div>
+                    
+                  
+
                 </div>
-            </div> 
             </> 
             :
             <>
@@ -81,6 +89,7 @@ class Admin extends React.Component {
                 </div>
             </div>
             </>
+
             }
             
             </>
