@@ -18,7 +18,7 @@ module.exports = (app) => {
         res.redirect('/')
     })
     
-    app.get('/api/current_user', async(req, res)=>{
+    app.get('/api/current_user', (req, res)=>{
         res.send(req.user)
     })
 
@@ -34,15 +34,12 @@ module.exports = (app) => {
             return 0;
         })
         console.log('after sort', users)
-        console.log('my current id ', req.user._id)
         const getObj = sortedUser.find((x) => x.email === req.user.email)
         const rank = sortedUser.indexOf(getObj) + 1;
         req.user.rank = rank;
         const user = await req.user.save()
         res.json(sortedUser)
     })
-
-
 
     app.post('/api/update_user', requireLogin, async (req, res) => {
         const { score, problemId } = req.body;
@@ -54,7 +51,6 @@ module.exports = (app) => {
                 var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
                 var yyyy = today.getFullYear();
                 today = mm + '/' + dd + '/' + yyyy;
-                // UPDATING THE ATTEMPTED QUESTION FIELD AND ARRAY
                 if(!req.user.attemptedQuestions.includes(problemId)){
                     const user = await User.findByIdAndUpdate(req.body.userId, {$push : {attemptedQuestions : problemId}});
                     var updatedUser = await user.save();
@@ -66,25 +62,24 @@ module.exports = (app) => {
                     if(req.user.timeSeriesGraphData.findIndex(item => item.key === today) < 0 ){
                         const user = await User.findByIdAndUpdate(req.body.userId, {$push : {timeSeriesGraphData : {
                             key:today,
-                            data: 20
+                            data: 1
                         }}})
                         var updatedUser = await user.save()
                     }else {
     
                         const user = await User.findByIdAndUpdate(req.body.userId, {$set : {timeSeriesGraphData : {
                             key : today,
-                            // data : req.user.timeSeriesGraphData[1].data + 20
                             data : req.user.timeSeriesGraphData.map((item, index) => {
                                 if(item.key === today){
-                                req.user.timeSeriesGraphData[index].data = req.user.timeSeriesGraphData[index].data + 10
+                                req.user.timeSeriesGraphData[index].data = req.user.timeSeriesGraphData[index].data + 1
                                 console.log(req.user.timeSeriesGraphData[index].data)
                                 req.user.save()
                                 }
                             }
-                                // item.key === today && (req.user.timeSeriesGraphData[index].data + 10)
+                              
                             )
                         }}})
-                        // console.log(req.user.timeSeriesGraphData[1].data)
+            
                         var updatedUser = await user.save()
                     }
                     
@@ -101,7 +96,6 @@ module.exports = (app) => {
 
 
             if(score === 0 ) {
-                // UPDATING THE ATTEMPTED QUESTION FIELD AND ARRAY
                 if(!req.user.attemptedQuestions.includes(problemId)){
                     var user = await User.findByIdAndUpdate(req.body.userId, {$push : {attemptedQuestions : problemId}})
                     var updatedUser = await user.save();
@@ -110,7 +104,6 @@ module.exports = (app) => {
                         var user = await User.findByIdAndUpdate(req.body.userId, {$push : {partiallySolvedQuestion : problemId}})
                         var updatedUser = await user.save();             
                 }
-                // UPDATING THE PROBLEM SOLVED
                 res.status(200).json(updatedUser)
             } 
 
