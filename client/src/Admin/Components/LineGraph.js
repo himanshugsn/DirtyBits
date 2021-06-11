@@ -18,7 +18,9 @@ class LineGraph extends React.Component {
             type: 'line',
             zoom: {
               enabled: false
-            }
+            },
+            background:'#27293D',
+            foreColor:'#fff',
           },
           dataLabels: {
             enabled: false
@@ -27,17 +29,23 @@ class LineGraph extends React.Component {
             curve: 'straight'
           },
           title: {
-            text: 'Questions Solved in a day',
-            align: 'left'
+            text: 'Questions Solved per day',
+            align: 'center',
+            margin:20,
+            offsetY:20,
+            style : {
+              fontSize:"25px",
+              fontWeight:300
+            }
+
           },
           grid: {
             row: {
-              colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+              colors: ['#27293D', '#27293D'], // takes an array which will be repeated on columns
               opacity: 0.5
             },
           },
           xaxis: {
-            // categories: this.props.data.map(item => item.key),
             categories: [],
           }
         },
@@ -56,8 +64,10 @@ class LineGraph extends React.Component {
       series : [{
         data : data,
       }],
-      xaxis : {
-        categories : key
+      options : {
+        xaxis:{
+          categories : key
+        }
       }
     })
   }
@@ -65,7 +75,7 @@ class LineGraph extends React.Component {
     render() {
       return (   
         <div id="chart">
-              <ReactApexChart options={this.state.options} series={this.state.series} type="line" height={350}/>              
+              <ReactApexChart options={this.state.options} series={this.state.series} type="line" height={450}/>              
       </div>
       )
     }
