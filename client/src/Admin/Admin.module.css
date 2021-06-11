@@ -1,12 +1,7 @@
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-} */
-
+/* 
 body {
   background-color: whitesmoke;
-  /* height: 92.3vh; */
+
 }
 
 .dashboardTitle {
@@ -83,4 +78,120 @@ span > h1 {
 .cardsContainer {
   display: flex;
   margin-top: 1.5%;
+} */
+
+.container {
+  margin-top: -20px;
+  height: 100%;
+  background-color: #1e1e2e;
+  overflow: hidden;
+}
+
+.title {
+  text-align: center;
+  color: #babbc1;
+  font-weight: 200;
+  margin: 20px 0;
+}
+
+.innerCards {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 4rem;
+  padding: 4rem;
+}
+
+.innerCards h1 {
+  font-size: 20px;
+  padding: 15px;
+  color: #6c7293;
+}
+
+.innerCards h3 {
+  margin-left: 20px;
+  color: white;
+  font-weight: 850;
+}
+
+.innerCards .icon {
+  font-size: 40px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 15px;
+  color: #ff8479;
+}
+
+.innerCards .icon1 {
+  color: #ff8479;
+}
+
+.innerCards .icon2 {
+  color: #d550d8;
+}
+
+.innerCards .icon3 {
+  color: #00d8d0;
+}
+
+.card1 {
+  position: relative;
+  background-color: #27293d;
+  height: 150px;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 1px 8px 17px -2px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 1px 8px 17px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 8px 17px -2px rgba(0, 0, 0, 0.75);
+  margin: 0 10px;
+}
+
+.pie {
+  height: 600px;
+  width: 600px;
+  margin: 70px auto;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .pie {
+    padding: 4rem;
+    height: 300px;
+    /* width: 500px; */
+  }
+
+  .innerCards {
+    display: flex;
+    flex-direction: column;
+    padding: 18px;
+  }
+
+  .card1 {
+    margin: 10px;
+  }
+}
+
+@media only screen and (min-width: 690px) and (max-width: 800px) {
+  .pie {
+    margin-left: 10rem;
+  }
+  .innerCards .icon {
+    font-size: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 8px;
+    color: #ff8479;
+  }
+
+  .innerCards .icon1 {
+    color: #ff8479;
+  }
+
+  .innerCards .icon2 {
+    color: #d550d8;
+  }
+
+  .innerCards .icon3 {
+    color: #00d8d0;
+  }
 }
