@@ -7,6 +7,7 @@ import { Suspense } from "react";
 import { connect } from "react-redux";
 import history from './history';
 import Loader from './Loader';
+const Blog = lazy(()=>import('./Blog/Blog'))
 // import ProblemView from "./Components/ProblemView/ProblemView";
 const ProblemView = lazy(()=> import('./Components/ProblemView/ProblemView'));
 // import ProblemList from './Components/ProbemList/ProblemList';
@@ -38,7 +39,7 @@ class App extends Component {
       <>
       <Router history={history} >
         <Suspense fallback={<Loader/>}>
-        <div style={{overflowX:'hidden'}}>
+        <div style={{overflowY:'hidden'}}>
           <Navbar/>
           <Route path="/logout" component={logout}/>
           <Route path="/" exact component={ProblemLevel}/>
@@ -54,6 +55,7 @@ class App extends Component {
           <Route path="/dashboard" exact component={Admin}/>
           <Route path="/profile" exact component={profile}/>
           <Route path="/leaderboard" exact component={Leaderboard}/>
+          <Route path="/blogs" exact component={Blog} />
         </div>
         </Suspense>
       </Router>
