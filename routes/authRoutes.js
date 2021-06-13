@@ -64,7 +64,8 @@ module.exports = (app) => {
                     var updatedUser = await user.save();
                 }
                 if(!req.user.solvedQuestion.includes(problemId)){
-                    req.user.score += 10;
+                    const scoreUpdate = await User.findByIdAndUpdate(req.body.userId, {$set : {score : req.user.score + 10}})
+                    await scoreUpdate.save()
                     const user = await User.findByIdAndUpdate(req.body.userId, {$push : {solvedQuestion : problemId}})
                     var updatedUser = await user.save();
 
