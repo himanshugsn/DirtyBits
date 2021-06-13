@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "@material-ui/core";
 
 function ThemeDrop(props) {
   var ThemeMapping = {
@@ -25,8 +26,9 @@ function ThemeDrop(props) {
       <div className="dropdown">
         <b>Theme</b>
         {"  "}
-        <button
-          className="btn btn-secondary dropdown-toggle"
+        <Button style={{outline:'none'}}
+          variant="contained"
+          color = "secondary"
           type="button"
           id="dropdownMenuButton"
           data-toggle="dropdown"
@@ -36,7 +38,7 @@ function ThemeDrop(props) {
           {Object.keys(ThemeMapping).find(
             (key) => ThemeMapping[key] === currId
           )}
-        </button>
+        </Button>
         <div
           className="dropdown-menu"
           aria-labelledby="dropdownMenuButton"

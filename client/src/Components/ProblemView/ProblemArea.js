@@ -27,10 +27,11 @@ function ProblemArea(props) {
           ".txt"
       );
     }
+    console.log('inps value', inps)
     const renderinp = inps.map((item, index) => {
       return (
         <>
-          <div>
+          <div style={{color:'white'}}>
             <pre>#TestCase {index + 1}</pre>
             <Iframe id="frmFile" src={item}></Iframe>
           </div>

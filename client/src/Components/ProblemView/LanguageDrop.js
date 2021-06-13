@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "@material-ui/core";
 
 function LanguageDrop(props) {
   var LangMapping = {
@@ -31,8 +32,12 @@ function LanguageDrop(props) {
       <div className="dropdown">
         <b>Language</b>
         {"  "}
-        <button
-          className="btn btn-secondary dropdown-toggle"
+        <Button
+          style={{outline:'none'}}
+          variant="contained"
+          color = "secondary"
+
+          // className="btn btn-secondary dropdown-toggle"
           type="button"
           id="dropdownMenuButton"
           data-toggle="dropdown"
@@ -40,7 +45,7 @@ function LanguageDrop(props) {
           aria-expanded="false"
         >
           {Object.keys(LangMapping).find((key) => LangMapping[key] === currId)}
-        </button>
+        </Button>
         <div
           className="dropdown-menu"
           aria-labelledby="dropdownMenuButton"

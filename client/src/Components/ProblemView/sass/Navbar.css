@@ -13,12 +13,12 @@
 .navbar-light .navbar-nav .nav-link.active,
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .show > .nav-link {
-  color: white;
+  color: black;
   border-bottom: 1px solid white;
 }
 
 #profileDrop {
-  color: white;
+  color: black;
   font-weight: 400;
   border: 0;
 }

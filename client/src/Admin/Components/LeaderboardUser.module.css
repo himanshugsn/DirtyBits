@@ -1,4 +1,4 @@
-.user {
+/* .user {
   position: relative;
   top: 20%;
   left: 50%;
@@ -25,14 +25,14 @@
     justify-content: space-between;
     padding: 20px;
 } */
-thead {
-  color: whitesmoke;
-  /* margin-top: 15px; */
-  font-size: 20px;
-}
-.section {
+/* thead { */
+/* color: whitesmoke; */
+/* margin-top: 15px; */
+/* font-size: 20px; */
+/* } */
+/* .section {
   position: absolute;
   height: 70px;
-  width: 100%;
-  /* margin-top: 1rem; */
-}
+  width: 100%; */
+/* margin-top: 1rem; */
+/* }  */

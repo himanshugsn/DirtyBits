@@ -1,4 +1,4 @@
-.container {
+/* .container {
   height: 92.3vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url("../static/leaderboardnew.webp");
@@ -15,4 +15,93 @@
   margin-bottom: -60px;
   font-size: 300%;
   color: whitesmoke;
+} */
+
+.leaderboard {
+  max-width: 490px;
+  width: 100%;
+  border-radius: 12px;
+  max-height: auto;
+}
+
+.leaderboard header {
+  --start: 15%;
+  height: 130px;
+  background-image: repeating-radial-gradient(
+      circle at var(--start),
+      transparent 0%,
+      transparent 10%,
+      rgba(2, 6, 20, 0.33) 10%,
+      rgba(8, 14, 36, 0.33) 17%
+    ),
+    linear-gradient(to bottom, #3a404d, #181c26);
+  color: #fff;
+  position: relative;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+}
+.leaderboard header .leaderboard__title {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  right: calc(var(--start) * 0.75);
+  transform: translateY(-50%);
+  text-transform: uppercase;
+  margin: 0;
+}
+.leaderboard header .leaderboard__title span {
+  display: block;
+}
+.leaderboard header .leaderboard__titleTop {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 6.5px;
+}
+.leaderboard header .leaderboard__titleBottom {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 3.55px;
+  opacity: 0.65;
+  transform: translateY(-2px);
+}
+/* .leaderboard header .leaderboard__icon {
+  fill: #fff;
+  opacity: 0.35;
+  width: 50px;
+  position: absolute;
+  top: 50%;
+  left: var(--start);
+  transform: translate(-50%, -50%);
+} */
+.leaderboard__profiles {
+  background-color: #fff;
+  border-radius: 0 0 12px 12px;
+  padding: 15px 15px 20px;
+  display: grid;
+  row-gap: 8px;
+}
+.leaderboard__picture {
+  max-width: 100%;
+  width: 60px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 10px #ebeef3, 0 0 0 22px #f3f4f6;
+}
+
+.leaderboard {
+  box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.4);
+}
+
+.leaderboardContainer {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  background: radial-gradient(
+    ellipse farthest-corner at center top,
+    #f39264 0%,
+    #f2606f 100%
+  );
+  height: 92.3vh;
+  width: 100vw;
+  overflow-x: hidden;
+  align-items: center;
 }

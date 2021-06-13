@@ -82,7 +82,7 @@ function Navbar(props) {
             <li className="nav-item mr-4">
               <a style={{color:'white'}}
                 className="nav-link"
-                href="/#"
+                href="/blogs"
                 id="blogs"
                 onClick={() => setPage("blogs")}
               >

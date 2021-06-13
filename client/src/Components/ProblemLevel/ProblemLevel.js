@@ -54,7 +54,7 @@ class ProblemLevel extends React.Component {
                 <Card img={array} value={'Arrays'} title={'Array'} description={'Basic level Data Structures and Algorithms'}/>
                 <Card img={stack} value={'Stacks'} title={'Stack'} description={'Intermediate level Data Structures and Algorithms'}/>
                 <Card img={ll} value={'Linked List'} title={'Linked List'} description={'Advance level Data Structures and Algorithms'}/>
-                <Card img={tree} title={'Trees'} description={'Advance level Data Structures and Algorithms'}/>
+                <Card img={tree} value={'Trees'} title={'Trees'} description={'Advance level Data Structures and Algorithms'}/>
                 <Card img={graph} value={'Graphs'} title={'Graphs'} description={'Advance level Data Structures and Algorithms'}/>
                 <Card img={string} value={'String'} title={'Strings'} description={'Advance level Data Structures and Algorithms'}/>
             </div>
