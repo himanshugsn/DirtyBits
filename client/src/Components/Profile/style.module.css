@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700");
+
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+
+.profileContainer {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.profileLoader {
+  display: flex;
+  justify-content: center;
+}
+.header {
+  min-height: 60vh;
+  background: #009fff;
+  background: linear-gradient(to right, #ec2f4b, #009fff);
+  color: white;
+  clip-path: ellipse(100vw 60vh at 50% 50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.details {
+  text-align: center;
+}
+
+.profilePic {
+  height: 15rem;
+  width: 15rem;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.location p {
+  display: inline-block;
+}
+
+.location svg {
+  vertical-align: middle;
+}
+
+.stats {
+  display: flex;
+}
+
+.stats .col4 {
+  width: 10rem;
+  text-align: center;
+}
+
+.heading {
+  font-weight: 400;
+  font-size: 1.7rem;
+  margin: 1rem 0;
+}
+
+.blogs {
+  display: grid;
+  grid-gap: 5px;
+  margin: 0 auto;
+  margin-top: -20rem;
+  padding: 10em; /* require to be 0 when in smaller devices*/
+  grid-auto-flow: row;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+}
