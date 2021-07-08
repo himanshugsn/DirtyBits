@@ -23,28 +23,7 @@ module.exports = (app) => {
     })
 
     app.get('/api/leaderboard',  async(req, res) => {
-        // const users = await User.find({
-        //     'solvedQuestion.0' :{"$exists":true} 
-        // });
-        // console.log('before sort', users)
-        // const sortedUser = users.sort(function(a, b) {
-        //     var keyA = a.solvedQuestion.length, keyB = b.solvedQuestion.length;
-        //     if(keyA > keyB) return -1;
-        //     if(keyA < keyB) return 1;
-        //     return 0;
-        // })
-        // console.log('after sort', users)
-        // const getObj = sortedUser.find((x) => x.email === req.user.email)
-        // const rank = sortedUser.indexOf(getObj) + 1;
-        // req.user.rank = rank;
-        // const user = await req.user.save()
-        // res.json(sortedUser)
         const users = await User.find({}).where('score').gt(0).sort({score:-1})
-        console.log('users sorted', users)
-        // const getObj = users.find((x) => x.email === req.user.email);
-        // const rank = users.indexOf(getObj) + 1;
-        // req.user.rank = rank;
-        // await req.user.save()
         users.map(async(user) => await User.findByIdAndUpdate({_id:user._id},{$set:{rank : users.indexOf(user) + 1}}))
         res.json(users)
     })
@@ -118,7 +97,6 @@ module.exports = (app) => {
             } 
 
             if(score > 0 && score < 100){
-                console.log('half score reached');
                 if(!req.user.attemptedQuestions.includes(problemId)){
                     var user = await User.findByIdAndUpdate(req.body.userId, {$push : {attemptedQuestions : problemId}})
                     var updatedUser = await user.save();

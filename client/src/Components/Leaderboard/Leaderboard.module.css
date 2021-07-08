@@ -1,22 +1,3 @@
-/* .container {
-  height: 92.3vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url("../static/leaderboardnew.webp");
-  background-repeat: no-repeat;
-  background-size: cover;
-  object-fit: contain;
-  background-position: center;
-  width: 100%;
-}
-
-.heading1 {
-  text-align: center;
-  padding-top: 3%;
-  margin-bottom: -60px;
-  font-size: 300%;
-  color: whitesmoke;
-} */
-
 .leaderboard {
   max-width: 490px;
   width: 100%;

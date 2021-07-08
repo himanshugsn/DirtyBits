@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 import Alert from '../Components/alert'
 import Login from '../Components/Buttons/Login.js';
 import {GiLaurelsTrophy, GiHourglass, GiPartyPopper} from 'react-icons/gi'
-import Meter from './Components/Meter'
+
 class Admin extends React.Component {
     constructor(props) {
         super(props);
@@ -73,7 +73,6 @@ class Admin extends React.Component {
                     </div>
                     <div className={styles.pie}>
                         <Pie/>
-                        {/* <Meter/> */}
                     </div>
                     
                   

@@ -26,7 +26,6 @@ function Profile() {
       }
       getProfileData()
     }, [name])
-    const array = new Array(3).fill(3)
     return (
         <div className={styles.profileContainer}>
            <section className={styles.profile}>
