@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './blog.module.css'
 
-function BlogButton({date, title, para, avatar}) {
+function BlogButton({date, title, para, avatar, href}) {
   return (
     <div className={style.blogwrapper}>
     <div className={style.userBlogPost}>
@@ -13,7 +13,7 @@ function BlogButton({date, title, para, avatar}) {
         <h1 className={style.blogh1}>{title}</h1>
         <p className={style.blogp}>{para}</p>
       </div>
-      <a className={style.btnPrimary} href='/blogs'>Read More</a>
+      <a className={style.btnPrimary} href={href}>Read More</a>
     </div>
   </div>
   )

@@ -79,7 +79,7 @@ function Navbar(props) {
                 Practice
               </Link>
             </li>
-            <li className="nav-item mr-4">
+            {/* <li className="nav-item mr-4">
               <a style={{color:'white'}}
                 className="nav-link"
                 href="/blogs"
@@ -88,7 +88,7 @@ function Navbar(props) {
               >
                 Blogs
               </a>
-            </li>
+            </li> */}
             <li className="nav-item mr-4">
               <Link style={{color:'white'}}
                 className="nav-link"
