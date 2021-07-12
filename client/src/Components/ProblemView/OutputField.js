@@ -13,8 +13,8 @@ function OutputField(props) {
       <h3>Output</h3>
       <textarea
         disabled
-        rows="5"
-        style={{ width: size }}
+        rows="10"
+        style={{ width: size, backgroundColor:'white'}}
         placeholder={props.val}
         onChange={(e) => props.dispatch(e.target.value)}
         id="outputfield"

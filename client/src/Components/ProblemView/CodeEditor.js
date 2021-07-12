@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import Editor from "@monaco-editor/react";
 import { FillSpinner as Loader } from "react-spinners-kit";
+import { RotateSpinner } from "react-spinners-kit";
 import InputField from "./InputField";
 import OutputField from "./OutputField";
 import LanguageDrop from "./LanguageDrop";
