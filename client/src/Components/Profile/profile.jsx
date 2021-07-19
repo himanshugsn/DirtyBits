@@ -60,13 +60,13 @@ function Profile() {
                     </div>
                 </header>
                 </section>
-                <h2 style={{textAlign:'center', marginTop:'5rem'}}>My Blogs</h2>
+                {/* <h2 style={{textAlign:'center', marginTop:'5rem'}}>My Blogs</h2>
                 <div className={styles.blogs}>
                     <div style={{margin:'3rem'}}><BlogButton href={'/blogs1'} avatar={avatar} date={'13 June 2021'} title={'React vs Vue'} para={'The primary difference lies in the methods used by Vue vs. React for rendering content onto the DOM.'}/></div>
                     <div style={{margin:'3rem'}}><BlogButton href={'/blogs2'} avatar={avatar} date={'10 June 2021'} title={'Node Js (API)'} para={'the Express framework, and MongoDB, focusing on the fundamental REST routes and basic database interaction. '}/></div>
                     <div style={{margin:'3rem'}}><BlogButton href={'/blogs3'} avatar={avatar} date={'1 June 2021'} title={'Microservices'} para={'It is an architectural style that structures an application as a collection of services'}/></div>
 
-                </div>
+                </div> */}
         </div>
     )
 }
