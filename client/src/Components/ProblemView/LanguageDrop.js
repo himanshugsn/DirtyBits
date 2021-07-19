@@ -54,18 +54,18 @@ function LanguageDrop(props) {
           <a id="CP" className="dropdown-item active" href="javascript:void(0)">
             C++
           </a>
-          <a id="c" className="dropdown-item" href="javascript:void(0)">
+          {/* <a id="c" className="dropdown-item" href="javascript:void(0)">
             C
-          </a>
+          </a> */}
           <a id="p3" className="dropdown-item" href="javascript:void(0)">
             Python3
           </a>
-          <a id="p2" className="dropdown-item" href="javascript:void(0)">
+          {/* <a id="p2" className="dropdown-item" href="javascript:void(0)">
             Python2
-          </a>
-          <a id="java" className="dropdown-item" href="javascript:void(0)">
+          </a> */}
+          {/* <a id="java" className="dropdown-item" href="javascript:void(0)">
             Java
-          </a>
+          </a> */}
         </div>
       </div>
     </div>
