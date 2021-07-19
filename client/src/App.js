@@ -25,10 +25,8 @@ import profile from "./Components/Profile/profile";
 
 import Leaderboard from "./Components/Leaderboard/Leaderboard";
 // const Blog = lazy(()=>import('./Blog/Blog'))
+import Problems from './Components/ProbemList/Problems'
 import Blog from './Blog/Blog'
-import BlogPage1 from "./Blog/BlogPage";
-import BlogPage2 from "./Blog/BlogPage2";
-import BlogPage3 from "./Blog/BlogPage3";
 const Admin = lazy(()=> import('./Admin/Admin'))
 // const Leaderboard = lazy(()=> import('./Components/Leaderboard/Leaderboard'))
 
@@ -61,9 +59,8 @@ class App extends Component {
           <Route path="/profile" exact component={profile}/>
           <Route path="/leaderboard" exact component={Leaderboard}/>
           <Route path="/blogs" exact component={Blog} />
-          <Route path="/blogs1" exact component={BlogPage1} />
-          <Route path="/blogs2" exact component={BlogPage2} />
-          <Route path="/blogs3" exact component={BlogPage3} />
+          <Route path="/new" component={Problems}/>
+          
         </div>
       </Router>
     </>
